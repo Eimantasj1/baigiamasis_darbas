@@ -34,6 +34,12 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/car_dealer_login/">Car Dealer Login</a>
           </li>
+          {% if user.is_authenticated %}
+      <div class="user-panel">
+        <p>Hello, {{ user.username }}!</p>
+      <center><a href="{% url 'logout' %}" style="position: relative; top: -15px;">Logout</a></center>
+      </div>
+      {% endif %}
         </ul>
       </div>
     </div>

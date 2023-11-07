@@ -43,9 +43,23 @@ body {
         background-color: #afafaf;
     }
 
-    /* Login mygtukas */
+    /* Login/SignUp mygtukai */
 .btn {
 background-color: #71cc0971;
 font-size: 22px;
 width: 8rem;
+}
+
+.btn-success {
+background-color: #71cc0971;
+font-size: 22px;
+width: 8rem;
+}
+.user-panel {
+position: absolute;
+top: 0;
+right: 20px;
+}
+.navbar-nav {
+    margin-right: 50px;
 }
