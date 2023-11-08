@@ -145,3 +145,8 @@ def car_dealer_signup(request):
         car_dealer.save()
         return render(request, "car_dealer_login.html")
     return render(request, "car_dealer_signup.html")
+
+def all_cars(request):
+    dealer = CarDealer.objects.filter(car_dealer=request.user).first()
+    cars = Car.objects.filter(car_dealer=dealer)
+    return render(request, "all_cars.html", {'cars':cars})
