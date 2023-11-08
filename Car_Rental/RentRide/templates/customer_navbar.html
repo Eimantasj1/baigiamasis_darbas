@@ -29,7 +29,7 @@
       </ul>
       {% if user.is_authenticated %}
       <div class="user-panel">
-        <p>Hello, {{ user.username | capfirst }}!</p>
+        <p>Nice to see you, {{ user.username | capfirst }}!</p>
         <center><a href="{% url 'logout' %}" class="nav-link active">Logout</a></center>
       </div>
       {% endif %}

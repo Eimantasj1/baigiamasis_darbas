@@ -38,10 +38,10 @@ button:hover {
     background-color: rgba(0, 6, 92, 0.443) !important;
 }
 footer {
-    position: absolute; 
+    position: fixed; 
     bottom: 0; 
     width: 100%; 
-    padding: 2px 0;
+    padding: 0px 0;
     margin: 0;
     background-color: rgba(0, 6, 92, 0.443);
 }

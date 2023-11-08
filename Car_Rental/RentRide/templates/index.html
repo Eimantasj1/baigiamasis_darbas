@@ -6,8 +6,8 @@
 {% block body %}
 <div class="container mt-4">
   <div>
-    <h1 class="display-4">RentRide | Online Car Rental Site</h1>
-    <p class="lead">You can select from the wide range of Cars availabe.</p>
+    <h1 class="display-4">RentRide | Car Rental Site</h1>
+    <p class="lead">Take your pick from the extensive range of Cars.</p>
     <hr class="my-4">
   </div>
   <div class="row mt-4">
@@ -16,9 +16,9 @@
   <div class="card">
     <img class="card-img-top" src="/img/{{car.image}}" alt="Card image cap" height="260px">
       <div class="card-body">
-        <h5 class="card-title">Car Name: {{car.name}}</h5>
-          <h6 class="card-text">Car Dealer: <b>{{car.car_dealer}}</b></h6>
-          <p class="card-text">Rent: €{{car.rent}} per day</p>
+        <h5 class="card-title">Car: {{car.name}}</h5>
+          <h6 class="card-text">Dealer: <b>{{car.car_dealer}}</b></h6>
+          <p class="card-text">Price: €{{car.rent}} per day</p>
           <a href="/customer_login/" class="btn btn-primary">Login to Rent </a>
         </div>
       </div>
