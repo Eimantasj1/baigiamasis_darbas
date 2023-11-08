@@ -76,3 +76,6 @@ def customer_login(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+def customer_homepage(request):
+    return render(request, "customer_homepage.html")

@@ -1,65 +1,74 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    * {
+}
+
+* {
     box-sizing: border-box
-    }
-    
-    input[type=text],
-    input[type=password] {
+}
+
+input[type=text],
+input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
-    }
-    
-    input[type=text]:focus,
-    input[type=password]:focus {
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
     background-color: #ddd;
     outline: none;
-    }
-    
-    hr {
+}
+
+hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
-    }
-    
-    button:hover {
-    opacity: 1;
-    }
-    
-    .container {
-    padding: 16px;
-    }
-    .navbar {
-    background-color: #e60d0d71;
-    }
-    footer {
-        padding: 1rem 0;
-        margin: 0;
-        background-color: #afafaf;
-    }
+}
 
-    /* Login/SignUp mygtukai */
+button:hover {
+    opacity: 1;
+}
+
+.container {
+    padding: 16px;
+}
+.navbar {
+    background-color: rgba(0, 6, 92, 0.443) !important;
+}
+footer {
+    padding: 1rem 0;
+    margin: 0;
+    background-color: rgba(0, 6, 92, 0.443);
+}
+
+    /* Login/SignUp/Logout mygtukai */
 .btn {
-background-color: #71cc0971;
-font-size: 22px;
-width: 8rem;
+    background-color: #71cc0971;
+    font-size: 22px;
+    width: 8rem;
 }
 
 .btn-success {
-background-color: #71cc0971;
-font-size: 22px;
-width: 8rem;
+    background-color: #71cc0971;
+    font-size: 22px;
+    width: 8rem;
 }
 .user-panel {
-position: absolute;
-top: 0;
-right: 20px;
+    position: absolute;
+    top: 0;
+    right: 20px;
 }
 .navbar-nav {
     margin-right: 50px;
+}
+
+/* keiciam spalva uzvedus pelyte ant mygtuku */
+
+.navbar-nav .nav-item  .nav-link:hover .nav-link.active:hover {
+    color: #ff0000 !important;
+}
+  .nav-link.active:hover {
+    color: #ff0000 !important;
 }

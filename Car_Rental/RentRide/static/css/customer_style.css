@@ -1,0 +1,26 @@
+.navbar {
+    background-color: rgba(0, 6, 92, 0.443);
+}
+
+/* Login/SignUp/Logout mygtukai */
+.user-panel {
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+.navbar-nav {
+    margin-right: 50px;
+}
+    
+    /* keiciam spalva uzvedus pelyte ant mygtuku */
+.navbar-nav .nav-item  .nav-link:hover .nav-link.active:hover {
+    color: #ff0000 !important;
+}
+  .nav-link.active:hover {
+    color: #ff0000 !important;
+}
+.user-panel a {
+    position: relative; 
+    color: #212529; 
+    top: -15px;
+}
