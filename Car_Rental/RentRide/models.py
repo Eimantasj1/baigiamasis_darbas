@@ -1,7 +1,8 @@
 from django.db import models
-from django.core.validators import MinLengthValidator, MaxLengthValidator, FileExtensionValidator
+from django.core.validators import MinLengthValidator, MaxLengthValidator 
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 class Location(models.Model):
     city = models.CharField(max_length=50, primary_key=True)
@@ -20,8 +21,9 @@ class CarDealer(models.Model):
         return str(self.car_dealer)
 
 def validate_car_image(value):
-    if not value.name.endswith(('.jpg', '.jpeg', '.png')):
-        raise models.ValidationError("Only JPG, JPEG, and PNG images are allowed.")
+    allowed_formats = ('.jpg', '.jpeg', '.png')
+    if not value.name.lower().endswith(allowed_formats):
+        raise models.ValidationError(f"Only {', '.join(allowed_formats)} images are allowed.")
 
 class Car(models.Model):
     name = models.CharField(max_length=50)
