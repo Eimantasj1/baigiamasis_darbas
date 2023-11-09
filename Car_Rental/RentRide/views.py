@@ -101,18 +101,22 @@ def car_dealer_login(request):
         return redirect("/")
     else:
         if request.method == "POST":
-            username = request.POST['username']
-            password = request.POST['password']
+            username = request.POST.get('username')
+            password = request.POST.get('password')
             user = authenticate(username=username, password=password)
 
             if user is not None:
-                user1 = CarDealer.objects.get(car_dealer=user)
-                if user1.type == "Car Dealer":
-                    login(request, user)
-                    return redirect("/all_cars")
-                else:
+                try:
+                    user1 = CarDealer.objects.get(car_dealer=user)
+                    if user1.type == "Car Dealer":
+                        login(request, user)
+                        return redirect(request.GET.get('next', '/all_cars'))
+                    else:
+                        alert = True
+                        return render(request, "car_dealer_login.html", {"alert": alert})
+                except CarDealer.DoesNotExist:
                     alert = True
-                    return render(request, "car_dealer_login.html", {"alert":alert})
+                    return render(request, "car_dealer_login.html", {"alert": alert})
     return render(request, "car_dealer_login.html")
 
 def car_dealer_signup(request):
@@ -150,3 +154,22 @@ def all_cars(request):
     dealer = CarDealer.objects.filter(car_dealer=request.user).first()
     cars = Car.objects.filter(car_dealer=dealer)
     return render(request, "all_cars.html", {'cars':cars})
+
+def add_car(request):
+    if request.method == "POST":
+        car_name = request.POST['car_name']
+        city_name = request.POST['city']
+        image = request.FILES['image']
+        capacity = request.POST['capacity']
+        rent = request.POST['rent']
+        car_dealer = CarDealer.objects.get(car_dealer=request.user)
+
+        location, created = Location.objects.get_or_create(city=city_name)
+
+        car = Car(name=car_name, car_dealer=car_dealer, location=location, capacity=capacity, image=image, rent=rent)
+        car.save()
+
+        alert = True
+        return render(request, "add_car.html", {'alert': alert})
+
+    return render(request, "add_car.html")
