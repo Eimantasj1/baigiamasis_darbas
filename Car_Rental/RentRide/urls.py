@@ -13,4 +13,5 @@ urlpatterns = [
     path("car_dealer_signup/", views.car_dealer_signup, name="car_dealer_signup"),
     path("all_cars/", views.all_cars, name="all_cars"),
     path("add_car/", views.add_car, name="add_car"),
+    path("all_orders/", views.all_orders, name="all_orders"),
 ]
