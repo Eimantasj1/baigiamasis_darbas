@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http.response import HttpResponseRedirect
 from . models import *
 from django.contrib.auth import authenticate, login, logout
 
@@ -230,3 +231,34 @@ def delete_order(request, myid):
     order = Order.objects.filter(id=myid)
     order.delete()
     return redirect("/past_orders")
+
+def order_details(request):
+    car_id = request.POST['id']
+    username = request.user
+    user = User.objects.get(username=username)
+    days = request.POST['days']
+    car = Car.objects.get(id=car_id)
+    if car.is_available:
+        car_dealer = car.car_dealer
+        rent = (int(car.rent))*(int(days))
+        car_dealer.earnings += rent
+        car_dealer.save()
+        try:
+            order = Order(car=car, car_dealer=car_dealer, user=user, rent=rent, days=days)
+            order.save()
+        except:
+            order = Order.objects.get(car=car, car_dealer=car_dealer, user=user, rent=rent, days=days)
+        car.is_available = False
+        car.save()
+        return render(request, "order_details.html", {'order':order})
+    return render(request, "order_details.html")
+
+def complete_order(request):
+    order_id = request.POST['id']
+    order = Order.objects.get(id=order_id)
+    car = order.car
+    order.is_complete = True
+    order.save()
+    car.is_available = True
+    car.save()
+    return HttpResponseRedirect('/all_orders/')
