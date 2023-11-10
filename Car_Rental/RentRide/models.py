@@ -1,8 +1,10 @@
+import os
+from uuid import uuid4
 from django.db import models
-from django.core.validators import MinLengthValidator, MaxLengthValidator 
+from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.core.exceptions import ValidationError
+
 
 class Location(models.Model):
     city = models.CharField(max_length=50, primary_key=True)
@@ -19,15 +21,19 @@ class CarDealer(models.Model):
 
     def __str__(self):
         return str(self.car_dealer)
-
 def validate_car_image(value):
     allowed_formats = ('.jpg', '.jpeg', '.png')
     if not value.name.lower().endswith(allowed_formats):
         raise models.ValidationError(f"Only {', '.join(allowed_formats)} images are allowed.")
 
+def custom_image_filename(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = f"{uuid4()}.{ext}"
+    return os.path.join('car_images', filename)
+
 class Car(models.Model):
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to="car_images/", validators=[validate_car_image])
+    image = models.ImageField(upload_to=custom_image_filename, validators=[validate_car_image])
     car_dealer = models.ForeignKey(CarDealer, on_delete=models.PROTECT)
     capacity = models.PositiveSmallIntegerField()
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
