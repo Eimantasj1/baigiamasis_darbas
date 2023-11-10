@@ -53,3 +53,6 @@ th,
 td {
     border: 2px solid #ddd;
 }
+.users-table table tbody tr:first-child th {
+    background-color: rgba(60, 73, 249, 0.443);
+}
