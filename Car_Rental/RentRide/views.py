@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.http.response import HttpResponseRedirect
 from . models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
 
 
 def index(request):
@@ -208,10 +209,11 @@ def earnings(request):
     user = User.objects.get(username=username)
     car_dealer = CarDealer.objects.get(car_dealer=user)
     orders = Order.objects.filter(car_dealer=car_dealer)
+    total_earnings = CarDealer.objects.aggregate(Sum('earnings'))['earnings__sum']
     all_orders = []
     for order in orders:
         all_orders.append(order)
-    return render(request, "earnings.html", {'amount':car_dealer.earnings, 'all_orders':all_orders})
+    return render(request, "earnings.html", {'amount':total_earnings, 'all_orders':all_orders})
 
 def edit_car(request, myid):
     car = Car.objects.filter(id=myid)[0]
@@ -270,24 +272,35 @@ def order_details(request):
         return render(request, "order_details.html", {'order':order})
     return render(request, "order_details.html")
 
+@login_required
 def complete_order(request, order_id):
     order = get_object_or_404(Order, id=order_id)
 
-    if request.method == "POST":
-        if order.user == request.user:
-            car = order.car
-            car.is_available = True
-            car.save()
+    if request.user == order.user and not order.is_complete:
+        order.is_complete = True
+        order.save()
+
+        if order.is_complete:
+            customer = request.user
+            customer_orders = Order.objects.filter(user=customer)
+            if order not in customer_orders:
+                order.user = customer
+                order.save()
+
+        return redirect('past_orders')
+    elif request.user == order.car_dealer.car_dealer:
+        if order.is_complete:
+            return HttpResponse("This order is already complete.")
+        else:
             order.is_complete = True
             order.save()
-            return redirect('past_orders')
-        else:
-            return HttpResponse("You are not authorized to complete this order")
-
-    return render(request, 'complete_order.html', {'order': order})
+            return redirect('all_orders')
+    else:
+        raise Http404("Order not found or you are not authorized to complete this order")
 
 @login_required
 def past_orders(request):
     user = request.user
     orders = Order.objects.filter(user=user, is_complete=True)
+
     return render(request, 'past_orders.html', {'all_orders': orders})

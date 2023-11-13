@@ -1,6 +1,6 @@
 {% extends 'car_dealer_navbar.html' %}
 {% block title %} RentRide | Orders {% endblock %}
-{% load static%}
+{% load static %}
 {% block body %}
 <div class="container">
     {% if all_orders %}
@@ -19,24 +19,26 @@
                 </tr>
                 {% for order in all_orders %}
                 <tr>
-                    <td>{{order.user.get_full_name}}</td>
-                    <td>{{order.car.name}}</td>
-                    <td><img src="{{order.car.image.url}}" alt="" width="100px" height="100px"></td>
-                    <td>{{order.days}}</td>
-                    <td>€ {{order.rent}}</td>
-                    <td>{{order.car.capacity}}</td>
-                    <td><form action = "/complete_order/" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="id" value="{{order.id}}">
-                        <button class="btn btn-primary" type="submit">Complete</button>
-                      </form></td>
+                    <td>{{ order.user.get_full_name }}</td>
+                    <td>{{ order.car.name }}</td>
+                    <td><img src="{{ order.car.image.url }}" alt="" width="100px" height="100px"></td>
+                    <td>{{ order.days }}</td>
+                    <td>€ {{ order.rent }}</td>
+                    <td>{{ order.car.capacity }}</td>
+                    <td>
+                        <form action="{% url 'complete_order' order.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-primary" type="submit">Complete</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        {% else %}
-        <br>
-        <h2>No Orders Right Now</h2>
-        {% endif %}
     </div>
-    {% endblock %}
+    {% else %}
+    <br>
+    <h2>No Orders Right Now</h2>
+    {% endif %}
+</div>
+{% endblock %}
