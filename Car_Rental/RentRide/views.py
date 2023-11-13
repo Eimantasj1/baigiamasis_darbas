@@ -84,7 +84,7 @@ def customer_homepage(request):
 def search_results(request):
     if request.method == 'POST':
         city = request.POST.get('city', '').lower()
-        vehicles_list = Car.objects.filter(location__city=city, is_available=True)
+        vehicles_list = Car.objects.filter(location__city__iexact=city, is_available=True)
         return render(request, "search_results.html", {'vehicles_list': vehicles_list})
     return redirect('index') 
 

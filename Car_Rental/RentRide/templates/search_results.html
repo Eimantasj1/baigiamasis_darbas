@@ -9,27 +9,27 @@
         <table>
             <thead>
                 <tr>
-                    <th>Car Name</th>
-                    <th>Image</th>
-                    <th>City</th>
-                    <th>Capacity</th>
-                    <th>Rent</th>
-                    <th>Actions</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">Car Name</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">Image</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">City</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">Capacity</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">Rent</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                {% if request.session.vehicles_list %}
-                    {% for car in request.session.vehicles_list %}
+                {% if vehicles_list %}
+                    {% for car in vehicles_list %}
                         <tr>
                             <td>{{ car.name }}</td>
-                            <td><img src="{{ car.image }}" alt="{{ car.name }} Image" width="100px" height="100px"></td>
-                            <td>{{ car.city }}</td>
+                            <td><img src="{{ car.image.url }}" alt="{{ car.name }} Image" width="100px" height="100px"></td>
+                            <td>{{ car.location.city }}</td>
                             <td>{{ car.capacity }}</td>
                             <td>€{{ car.rent }} per day</td>
                             <td>
                                 <form action="/search_results/" method="post">
                                     {% csrf_token %}
-                                    <input type="text" name="city" placeholder="Enter City">
+                                    <input type="text" name="city" placeholder="Enter Another City" value="{{ city }}">
                                     <button type="submit">Search</button>
                                 </form>
                             </td>
@@ -38,7 +38,7 @@
                 {% else %}
                     <tr>
                         <td colspan="6">
-                            <h2>No cars available at this moment</h2>
+                            <h2>No cars available in this city at the moment</h2>
                         </td>
                     </tr>
                 {% endif %}
