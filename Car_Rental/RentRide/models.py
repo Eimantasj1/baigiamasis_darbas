@@ -60,3 +60,6 @@ class Order(models.Model):
     days = models.PositiveSmallIntegerField()
     is_complete = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.user.username}'s Order for {self.car.name}"

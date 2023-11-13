@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from django.http.response import HttpResponseRedirect
 from . models import *
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -79,28 +81,38 @@ def customer_homepage(request):
     return render(request, "customer_homepage.html")
 
 def search_results(request):
-    city = request.POST['city']
-    city = city.lower()
-    vehicles_list = []
-    location = Location.objects.filter(city = city)
-    for a in location:
-        cars = Car.objects.filter(location=a)
-        for car in cars:
-            if car.is_available == True:
-                vehicle_dictionary = {'name':car.name, 'id':car.id, 'image':car.image.url, 'city':car.location.city,'capacity':car.capacity}
-                vehicles_list.append(vehicle_dictionary)
-    request.session['vehicles_list'] = vehicles_list
-    return render(request, "search_results.html")
+    if request.method == 'POST':
+        city = request.POST.get('city', '').lower()
+        vehicles_list = Car.objects.filter(location__city=city, is_available=True)
+        return render(request, "search_results.html", {'vehicles_list': vehicles_list})
+    return redirect('index') 
 
-def car_rent(request):
+def car_rent(request, car_id):
+    car = get_object_or_404(Car, id=car_id)
+    cost_per_day = int(car.rent)
+
     if request.method == "POST":
-        id = request.POST.get('id')
-        car = Car.objects.get(id=id)
-        cost_per_day = int(car.rent)
-        return render(request, 'car_rent.html', {'car': car, 'cost_per_day': cost_per_day})
-    else:
-        return HttpResponseRedirect('/')
+        days = request.POST.get('days')
 
+        if days.isdigit():
+            days = int(days)
+            user = request.user
+            car_dealer = car.car_dealer
+            rent = cost_per_day * days
+
+            if car.is_available:
+                car.is_available = False
+                car.save()
+                order = Order(user=user, car_dealer=car_dealer, car=car, rent=rent, days=days)
+                order.save()
+
+                return redirect('past_orders')
+            else:
+                return HttpResponse("Car is not available")
+        else:
+            return HttpResponse("Please enter a valid number of days")
+
+    return render(request, 'car_rent.html', {'car': car, 'cost_per_day': cost_per_day})
 
 def car_dealer_login(request):
     if request.user.is_authenticated:
@@ -258,26 +270,24 @@ def order_details(request):
         return render(request, "order_details.html", {'order':order})
     return render(request, "order_details.html")
 
-def complete_order(request):
-    order_id = request.POST['id']
-    order = Order.objects.get(id=order_id)
-    car = order.car
-    order.is_complete = True
-    order.save()
-    car.is_available = True
-    car.save()
-    return HttpResponseRedirect('/all_orders/')
+def complete_order(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
 
+    if request.method == "POST":
+        if order.user == request.user:
+            car = order.car
+            car.is_available = True
+            car.save()
+            order.is_complete = True
+            order.save()
+            return redirect('past_orders')
+        else:
+            return HttpResponse("You are not authorized to complete this order")
+
+    return render(request, 'complete_order.html', {'order': order})
+
+@login_required
 def past_orders(request):
-    all_orders = []
-    user = User.objects.get(username=request.user)
-    try:
-        orders = Order.objects.filter(user=user)
-    except:
-        orders = None
-    if orders is not None:
-        for order in orders:
-            if order.is_complete == False:
-                order_dictionary = {'id':order.id, 'rent':order.rent, 'car':order.car, 'days':order.days, 'car_dealer':order.car_dealer}
-                all_orders.append(order_dictionary)
-    return render(request, "past_orders.html", {'all_orders':all_orders})
+    user = request.user
+    orders = Order.objects.filter(user=user, is_complete=True)
+    return render(request, 'past_orders.html', {'all_orders': orders})
