@@ -8,7 +8,7 @@ from django.db.models import Sum
 
 
 def index(request):
-    cars = Car.objects.all()
+    cars = Car.objects.filter(is_available=True)
     return render(request, "index.html", {'cars':cars})
 
 def customer_signup(request):
