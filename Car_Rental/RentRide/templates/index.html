@@ -19,7 +19,15 @@
         <h5 class="card-title">Car: {{car.name}}</h5>
           <h6 class="card-text">Dealer: <b>{{car.car_dealer}}</b></h6>
           <p class="card-text">Price: €{{car.rent}} per day</p>
-          <a href="/customer_login/" class="btn btn-primary">Login to Rent </a>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a href="{% url 'car_rent' %}" class="btn btn-primary">Rent a Car</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a href="{% url 'customer_login' %}" class="btn btn-primary">Login to Rent</a>
+            </li>
+        {% endif %}
         </div>
       </div>
     </div>

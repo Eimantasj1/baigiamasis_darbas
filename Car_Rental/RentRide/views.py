@@ -5,7 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def index(request):
-    return render(request, "index.html")
+    cars = Car.objects.all()
+    return render(request, "index.html", {'cars':cars})
 
 def customer_signup(request):
     if request.user.is_authenticated:
@@ -92,10 +93,14 @@ def search_results(request):
     return render(request, "search_results.html")
 
 def car_rent(request):
-    id = request.POST['id']
-    car = Car.objects.get(id=id)
-    cost_per_day = int(car.rent)
-    return render(request, 'car_rent.html', {'car':car, 'cost_per_day':cost_per_day})
+    if request.method == "POST":
+        id = request.POST.get('id')
+        car = Car.objects.get(id=id)
+        cost_per_day = int(car.rent)
+        return render(request, 'car_rent.html', {'car': car, 'cost_per_day': cost_per_day})
+    else:
+        return HttpResponseRedirect('/')
+
 
 def car_dealer_login(request):
     if request.user.is_authenticated:
@@ -262,3 +267,17 @@ def complete_order(request):
     car.is_available = True
     car.save()
     return HttpResponseRedirect('/all_orders/')
+
+def past_orders(request):
+    all_orders = []
+    user = User.objects.get(username=request.user)
+    try:
+        orders = Order.objects.filter(user=user)
+    except:
+        orders = None
+    if orders is not None:
+        for order in orders:
+            if order.is_complete == False:
+                order_dictionary = {'id':order.id, 'rent':order.rent, 'car':order.car, 'days':order.days, 'car_dealer':order.car_dealer}
+                all_orders.append(order_dictionary)
+    return render(request, "past_orders.html", {'all_orders':all_orders})
