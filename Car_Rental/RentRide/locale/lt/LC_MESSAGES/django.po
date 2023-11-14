@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-14 11:13+0000\n"
+"POT-Creation-Date: 2023-11-14 11:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,6 +36,7 @@ msgstr "Automobilio marke"
 #: RentRide/templates/add_car.html:18 RentRide/templates/add_car.html:19
 #: RentRide/templates/all_cars.html:14
 #: RentRide/templates/car_dealer_signup.html:26
+#: RentRide/templates/customer_signup.html:28
 msgid "City"
 msgstr "Miestas"
 
@@ -120,7 +121,8 @@ msgid "No Orders Right Now"
 msgstr "Naujų užsakymų nerasta"
 
 #: RentRide/templates/base.html:16 RentRide/templates/car_dealer_navbar.html:17
-#: RentRide/templates/index.html:9
+#: RentRide/templates/customer_homepage.html:9
+#: RentRide/templates/customer_navbar.html:16 RentRide/templates/index.html:9
 msgid "Car Rental Site"
 msgstr "Automobilių nuomos puslapis"
 
@@ -128,7 +130,8 @@ msgstr "Automobilių nuomos puslapis"
 msgid "Home"
 msgstr "Pagrindinis"
 
-#: RentRide/templates/base.html:28
+#: RentRide/templates/base.html:28 RentRide/templates/customer_login.html:3
+#: RentRide/templates/customer_login.html:10
 msgid "Customer Login"
 msgstr "Vartotojo prisijungimas"
 
@@ -138,51 +141,67 @@ msgid "Dealer Login"
 msgstr "Nuomotojo prisijungimas"
 
 #: RentRide/templates/base.html:35 RentRide/templates/car_dealer_navbar.html:38
+#: RentRide/templates/customer_navbar.html:32
 msgid "Nice to see you"
 msgstr "Malonu Tave matyti"
 
 #: RentRide/templates/base.html:36 RentRide/templates/car_dealer_navbar.html:39
+#: RentRide/templates/customer_navbar.html:33
 msgid "Logout"
 msgstr "Atsijungti"
 
 #: RentRide/templates/car_dealer_login.html:10
+#: RentRide/templates/customer_login.html:11
 msgid "To access your account, complete the following form"
 msgstr "Kad prisijungtum prie savo paskyros, užpildyk žemiau esančius laukelius"
 
 #: RentRide/templates/car_dealer_login.html:11
+#: RentRide/templates/customer_login.html:12
 msgid "If you haven't registered yet, click here"
 msgstr "Jeigu esi neprisiregistravęs, tuomet spausk čia"
 
 #: RentRide/templates/car_dealer_login.html:11
 #: RentRide/templates/car_dealer_signup.html:37
+#: RentRide/templates/customer_login.html:12
+#: RentRide/templates/customer_signup.html:39
 msgid "Signup"
 msgstr "Registruotis"
 
 #: RentRide/templates/car_dealer_login.html:15
 #: RentRide/templates/car_dealer_signup.html:17
+#: RentRide/templates/customer_login.html:15
+#: RentRide/templates/customer_signup.html:19
 msgid "Username"
 msgstr "Slapyvardis"
 
 #: RentRide/templates/car_dealer_login.html:16
 #: RentRide/templates/car_dealer_signup.html:18
+#: RentRide/templates/customer_login.html:16
+#: RentRide/templates/customer_signup.html:20
 msgid "Enter Username"
 msgstr "Įvesk slapyvardį"
 
 #: RentRide/templates/car_dealer_login.html:18
 #: RentRide/templates/car_dealer_signup.html:29
+#: RentRide/templates/customer_login.html:18
+#: RentRide/templates/customer_signup.html:31
 msgid "Password"
 msgstr "Slaptažodis"
 
 #: RentRide/templates/car_dealer_login.html:19
 #: RentRide/templates/car_dealer_signup.html:30
+#: RentRide/templates/customer_login.html:19
+#: RentRide/templates/customer_signup.html:32
 msgid "Enter Password"
 msgstr "Įvesk slaptažodį"
 
 #: RentRide/templates/car_dealer_login.html:22
+#: RentRide/templates/customer_login.html:22
 msgid "Remember me"
 msgstr "Prisiminti mane"
 
 #: RentRide/templates/car_dealer_login.html:25
+#: RentRide/templates/customer_login.html:25
 msgid "Login"
 msgstr "Prisijungti"
 
@@ -207,55 +226,69 @@ msgid "Car Dealer Signup Form"
 msgstr "Automobilių nuomotojo registracijos forma"
 
 #: RentRide/templates/car_dealer_signup.html:8
+#: RentRide/templates/customer_signup.html:10
 msgid "Please fill in this form to create an account"
 msgstr "Prašome užpildyti visus laukelius, kad sukurti paskyrą"
 
 #: RentRide/templates/car_dealer_signup.html:11
+#: RentRide/templates/customer_signup.html:13
 msgid "First Name"
 msgstr "Vardas"
 
 #: RentRide/templates/car_dealer_signup.html:12
+#: RentRide/templates/customer_signup.html:14
 msgid "Enter First Name"
 msgstr "Įvesk vardą"
 
 #: RentRide/templates/car_dealer_signup.html:14
+#: RentRide/templates/customer_signup.html:16
 msgid "Last Name"
 msgstr "Pavardė"
 
 #: RentRide/templates/car_dealer_signup.html:15
+#: RentRide/templates/customer_signup.html:17
 msgid "Enter Last Name"
 msgstr "Įvesk pavardę"
 
 #: RentRide/templates/car_dealer_signup.html:20
+#: RentRide/templates/customer_signup.html:22
 msgid "Email"
 msgstr "El. paštas"
 
 #: RentRide/templates/car_dealer_signup.html:21
+#: RentRide/templates/customer_signup.html:23
 msgid "Enter Email"
 msgstr "Įvesk el. paštą"
 
 #: RentRide/templates/car_dealer_signup.html:23
+#: RentRide/templates/customer_signup.html:25
 msgid "Contact Number"
 msgstr "Telefono numeris"
 
 #: RentRide/templates/car_dealer_signup.html:24
+#: RentRide/templates/customer_signup.html:26
 msgid "Enter Contact Number"
 msgstr "Įvesk telefono numerį"
 
 #: RentRide/templates/car_dealer_signup.html:27
+#: RentRide/templates/customer_signup.html:29
 msgid "Enter City"
 msgstr "Įvesk miestą"
 
 #: RentRide/templates/car_dealer_signup.html:32
 #: RentRide/templates/car_dealer_signup.html:33
+#: RentRide/templates/customer_signup.html:34
+#: RentRide/templates/customer_signup.html:35
 msgid "Confirm Password"
 msgstr "Pakartok slaptažodį"
 
 #: RentRide/templates/car_dealer_signup.html:35
+#: RentRide/templates/customer_signup.html:37
 msgid "By creating an account you agree to our"
 msgstr "Sukurdamas paskyrą Tu sutinki su mūsų"
 
 #: RentRide/templates/car_dealer_signup.html:35
+#: RentRide/templates/customer_signup.html:37
 msgid "Terms & Privacy"
 msgstr "privatumo politika"
 
@@ -290,6 +323,50 @@ msgstr "Patvirtinti užsakymą"
 #: RentRide/templates/complete_order.html:10
 msgid "Order ID"
 msgstr "Užsakymo numeris"
+
+#: RentRide/templates/customer_homepage.html:3
+#: RentRide/templates/customer_navbar.html:24
+msgid "Search Cars"
+msgstr "Ieškoti automobilių"
+
+#: RentRide/templates/customer_homepage.html:9
+msgid "Welcome to"
+msgstr "Sveiki atvykę į"
+
+#: RentRide/templates/customer_homepage.html:10
+msgid "By providing your city, you can explore the list of cars currently available"
+msgstr "Nurodydami savo miestą pamatykite jame nuomojamus automobilius"
+
+#: RentRide/templates/customer_homepage.html:15
+msgid "Type in Your City"
+msgstr "Įvesk miestą kuriame ieškai automobilio"
+
+#: RentRide/templates/customer_homepage.html:17
+msgid "Search"
+msgstr "Ieškoti"
+
+#: RentRide/templates/customer_login.html:34
+msgid "Invalid Credentials"
+msgstr "Toks vartotojas nerastas"
+
+#: RentRide/templates/customer_navbar.html:27
+#| msgid "Orders"
+msgid "Past Orders"
+msgstr "Mano užsakymai"
+
+#: RentRide/templates/customer_signup.html:3
+#| msgid "Customer Login"
+msgid "Customer Signup"
+msgstr "Vartotojo prisijungimas"
+
+#: RentRide/templates/customer_signup.html:9
+#| msgid "Car Dealer Signup Form"
+msgid "Customer Signup Form"
+msgstr "Automobilių nuomotojo registracijos forma"
+
+#: RentRide/templates/customer_signup.html:48
+msgid "You are now successfully registered as a customer"
+msgstr "Sėkmingai prisiregistravote kaip vartotojas"
 
 #: RentRide/templates/index.html:10
 msgid "Take your pick from the extensive range of Cars"
