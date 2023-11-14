@@ -1,20 +1,20 @@
 {% extends 'customer_navbar.html' %}
-
-{% block title %} Car Search Results {% endblock %}
+{% load static i18n %}
+{% block title %} {% trans "Car Search Results"|title %} {% endblock %}
 
 {% block body %}
 <div class="container">
-    <h1 class="mt-4">Cars List</h1>
+    <h1 class="mt-4">{% trans "Cars List"|title %}</h1>
     <div class="users-table mt-4">
         <table>
             <thead>
                 <tr>
-                    <th style="background-color: rgba(60, 73, 249, 0.443);">Car Name</th>
-                    <th style="background-color: rgba(60, 73, 249, 0.443);">Image</th>
-                    <th style="background-color: rgba(60, 73, 249, 0.443);">City</th>
-                    <th style="background-color: rgba(60, 73, 249, 0.443);">Capacity</th>
-                    <th style="background-color: rgba(60, 73, 249, 0.443);">Rent</th>
-                    <th style="background-color: rgba(60, 73, 249, 0.443);">Actions</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">{% trans "Car Name"|title %}</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">{% trans "Image"|capfirst %}</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">{% trans "City"|capfirst %}</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">{% trans "Capacity"|capfirst %}</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">{% trans "Rent"|capfirst %}</th>
+                    <th style="background-color: rgba(60, 73, 249, 0.443);">{% trans "Actions"|capfirst %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,12 +25,12 @@
                             <td><img src="{{ car.image.url }}" alt="{{ car.name }} Image" width="100px" height="100px"></td>
                             <td>{{ car.location.city }}</td>
                             <td>{{ car.capacity }}</td>
-                            <td>€{{ car.rent }} per day</td>
+                            <td>€{{ car.rent }} {% trans "per day" %}</td>
                             <td>
                                 <form action="/search_results/" method="post">
                                     {% csrf_token %}
-                                    <input type="text" name="city" placeholder="Enter Another City" value="{{ city }}">
-                                    <button type="submit">Search</button>
+                                    <input type="text" name="city" placeholder="{% trans "Enter Another City"|title %}" value="{{ city }}">
+                                    <button type="submit">{% trans "Search"|capfirst %}</button>
                                 </form>
                             </td>
                         </tr>
@@ -38,7 +38,7 @@
                 {% else %}
                     <tr>
                         <td colspan="6">
-                            <h2>No cars available in this city at the moment</h2>
+                            <h2>{% trans "No cars available in this city at the moment"|capfirst %}</h2>
                         </td>
                     </tr>
                 {% endif %}

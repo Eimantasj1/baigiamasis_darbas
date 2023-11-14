@@ -1,16 +1,17 @@
 {% extends 'customer_navbar.html' %}
-{% block title %} RentRide | Order Completed {% endblock %}
+{% load static i18n %}
+{% block title %} RentRide | {% trans "Order Completed"|title %} {% endblock %}
 {% block css %}
 {% endblock %}
 {% block body %}
 <div class="container mt-4">
-      <h3><b>Order Completed</b></h3>
-      <b>Your Vehicle Order Has Been Processed!</b><br><br>
-      <b>Total Rent :</b> € {{order.rent}}<br><br>
-      <b>Vehicle :</b> {{order.car.name}}<br><br>
-      <b>Duration :</b> {{order.days}} days<br><br>
-      <b>Car-Dealer :</b> {{order.car_dealer.car_dealer.first_name}} {{order.car_dealer.car_dealer.last_name}}<br><br>
-      <b>Car-Dealer's Contact:</b> {{order.car_dealer.phone}}<br><br>
+      <h3><b>{% trans "Order Completed"|title %}</b></h3>
+      <b>{% trans "Your Vehicle Order Has Been Processed"|title %}!</b><br><br>
+      <b>{% trans "Total Rent"|title %} :</b> € {{order.rent}}<br><br>
+      <b>{% trans "Vehicle"|capfirst %} :</b> {{order.car.name}}<br><br>
+      <b>{% trans "Duration"|capfirst %} :</b> {{order.days}} days<br><br>
+      <b>{% trans "Car-Dealer"|title %} :</b> {{order.car_dealer.car_dealer.first_name}} {{order.car_dealer.car_dealer.last_name}}<br><br>
+      <b>{% trans "Car-Dealer's Contact"|title %}:</b> {{order.car_dealer.phone}}<br><br>
       </div>
       </div>
 </div>

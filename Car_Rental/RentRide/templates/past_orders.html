@@ -1,23 +1,23 @@
 {% extends 'customer_navbar.html' %}
-{% load static %}
-{% block title %} Customer Login {% endblock %}
+{% load static i18n %}
+{% block title %} {% trans "Customer Login"|title %} {% endblock %}
 {% block css %}
 <style></style>
 {% endblock %}
 {% block body %}
 <div class="container">
     {% if all_orders %}
-    <h1 class="mt-4">Past Orders</h1>
+    <h1 class="mt-4">{% trans "Past Orders"|title %}</h1>
     <div class="users-table mt-4">
     <table>
         <tbody>
             <tr>
-                <th>Car Name</th>
-                <th>Image</th>
-                <th>Days</th>
-                <th>Rent</th>
-                <th>Capacity</th>
-                <th>Action</th>
+                <th>{% trans "Car Name"|title %}</th>
+                <th>{% trans "Image"|capfirst %}</th>
+                <th>{% trans "Days"|capfirst %}</th>
+                <th>{% trans "Rent"|capfirst %}</th>
+                <th>{% trans "Capacity"|capfirst %}</th>
+                <th>{% trans "Action"|capfirst %}</th>
             </tr>
             {% for order in all_orders %}
             <tr>
@@ -30,7 +30,7 @@
                     {% if not order.is_complete %}
                         <form method="post" action="{% url 'complete_order' order.id %}">
                             {% csrf_token %}
-                            <button class="btn btn-primary" type="submit">Complete Order</button>
+                            <button class="btn btn-primary" type="submit">{% trans "Complete Order"|title %}</button>
                         </form>
                     {% endif %}
                 </td>
@@ -40,7 +40,7 @@
     </table>
     {% else %}
     <br>
-    <h2>No orders found, or awaiting confirmation from dealer</h2>
+    <h2>{% trans "No orders found, or awaiting confirmation from dealer"|capfirst %}</h2>
     {% endif %}
 </div>
 {% endblock %}
