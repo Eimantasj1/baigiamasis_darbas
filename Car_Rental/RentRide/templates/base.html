@@ -32,17 +32,6 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/car_dealer_login/">{% trans "Dealer Login"|title %}</a>
           </li>
-          <li>
-            <form class="inline-form" action="{% url "set_language" %}" method="post">
-              {% csrf_token %}
-              <select name"language" onchange="this.form.submit()">
-                {% for language in LANGUAGES %}
-                  <option value="{{ language.0 }}"
-                  {% if language.0 == LANGUAGE_CODE %}selected{% endif %}
-                  >{{ language.1 }}</option>
-                {% endfor%}
-              </select>
-          </li>
           {% if user.is_authenticated %}
           <div class="user-panel">
             <p>{% trans "Nice to see you"|capfirst %}, {{ user.username |capfirst }}!</p>
@@ -60,7 +49,19 @@
     crossorigin="anonymous">
   </script>
   <footer>
-    <center><p>&copy; 2023 RentRide</p></center>
+    <center>
+      <form class="inline-form" action="{% url "set_language" %}" method="post">
+        {% csrf_token %}
+        <select name="language" onchange="this.form.submit()">
+          {% for language in LANGUAGES %}
+            <option value="{{ language.0 }}"
+            {% if language.0 == LANGUAGE_CODE %}selected{% endif %}
+            >{{ language.1 }}</option>
+          {% endfor%}
+        </select>
+      </form>
+      <p>&copy; 2023 RentRide</p>
+    </center>
   </footer>
 </body>
 </html>

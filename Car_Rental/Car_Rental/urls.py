@@ -21,6 +21,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('RentRide.urls')),
-    path('i18n/', include('django.conf.urls.i18nn')),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
