@@ -1,10 +1,9 @@
-import os
-from uuid import uuid4
 from django.db import models
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.contrib.auth.models import User
 from django.utils import timezone
-
+import os
+from uuid import uuid4
 
 class Location(models.Model):
     city = models.CharField(max_length=50, primary_key=True)
@@ -21,6 +20,7 @@ class CarDealer(models.Model):
 
     def __str__(self):
         return str(self.car_dealer)
+
 def validate_car_image(value):
     allowed_formats = ('.jpg', '.jpeg', '.png')
     if not value.name.lower().endswith(allowed_formats):
@@ -53,7 +53,7 @@ class Customer(models.Model):
         return str(self.user)
 
 class Order(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     car_dealer = models.ForeignKey(CarDealer, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     rent = models.CharField(max_length=10)
