@@ -1,5 +1,5 @@
 <!doctype html>
-{% load static %}
+{% load static i18n %}
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -13,7 +13,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">RentRide| Car Rental Site</a>
+      <a class="navbar-brand" href="#">RentRide| {% trans "Car Rental Site"|title %}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -22,18 +22,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" href="/">{% trans "Home"|capfirst %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/customer_login/">Customer Login</a>
+            <a class="nav-link active" aria-current="page" href="/customer_login/">{% trans "Customer Login"|title %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/car_dealer_login/">Dealer Login</a>
+            <a class="nav-link active" aria-current="page" href="/car_dealer_login/">{% trans "Dealer Login"|title %}</a>
           </li>
           {% if user.is_authenticated %}
           <div class="user-panel">
-            <p>Nice to see you, {{ user.username | capfirst }}!</p>
-            <center><a href="{% url 'logout' %}" class="nav-link active">Logout</a></center>
+            <p>{% trans "Nice to see you"|capfirst %}, {{ user.username |capfirst }}!</p>
+            <center><a href="{% url 'logout' %}" class="nav-link active">{% trans "Logout"|capfirst %}</a></center>
           </div>
           {% endif %}
         </ul>
