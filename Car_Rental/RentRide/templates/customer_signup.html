@@ -1,41 +1,42 @@
 {% extends 'base.html' %}
-{% block title %} Customer Signup {% endblock %}
+{% load static i18n %}
+{% block title %} {% trans "Customer Signup"|title %} {% endblock %}
 {% block css %}
 {% endblock %}
 {% block body %}
 <form style="border:1px solid #ccc" method="POST"> {% csrf_token %}
     <div class="container">
-      <h1>Customer Signup Form</h1>
-      <p>Please fill in this form to create an account.</p>
+      <h1>{% trans "Customer Signup Form"|title %}</h1>
+      <p>{% trans "Please fill in this form to create an account"|capfirst %}.</p>
       <hr>
   
-      <label><b>First Name</b></label>
-      <input type="text" placeholder="Enter First Name" name="first_name" required>
+      <label><b>{% trans "First Name"|title %}</b></label>
+      <input type="text" placeholder="{% trans "Enter First Name"|title %}" name="first_name" required>
 
-      <label><b>Last Name</b></label>
-      <input type="text" placeholder="Enter Last Name" name="last_name" required>
+      <label><b>{% trans "Last Name"|title %}</b></label>
+      <input type="text" placeholder="{% trans "Enter Last Name"|title %}" name="last_name" required>
 
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
+      <label><b>{% trans "Username"|capfirst %}</b></label>
+      <input type="text" placeholder="{% trans "Enter Username"|title %}" name="username" required>
   
-      <label><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <label><b>{% trans "Email"|capfirst %}</b></label>
+      <input type="text" placeholder="{% trans "Enter Email"|title %}" name="email" required>
 
-      <label><b>Contact Number</b></label>
-      <input type="text" placeholder="Enter Contact Number" name="phone" required>
+      <label><b>{% trans "Contact Number"|title %}</b></label>
+      <input type="text" placeholder="{% trans "Enter Contact Number"|title %}" name="phone" required>
 
-      <label><b>City</b></label>
-      <input type="text" placeholder="Enter City" name="city" required>
+      <label><b>{% trans "City"|capfirst %}</b></label>
+      <input type="text" placeholder="{% trans "Enter City"|title %}" name="city" required>
   
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password1" required>
+      <label><b>{% trans "Password"|capfirst %}</b></label>
+      <input type="password" placeholder="{% trans "Enter Password"|title %}" name="password1" required>
 
-      <label><b>Confirm Password</b></label>
-      <input type="password" placeholder="Confirm Password" name="password2" required>
+      <label><b>{% trans "Confirm Password"|title %}</b></label>
+      <input type="password" placeholder="{% trans "Confirm Password"|title %}" name="password2" required>
             
-      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+      <p>{% trans "By creating an account you agree to our"|capfirst %} <a href="#" style="color:dodgerblue">{% trans "Terms & Privacy" %}</a>.</p>
   
-        <button type="submit" class="btn btn-success">Signup</button>
+        <button type="submit" class="btn btn-success">{% trans "Signup"|capfirst %}</button>
     </div>
   </form>
   </body>
@@ -44,7 +45,7 @@
   {% block js %}
   <script>
     {% if alert %}
-    alert("You are now successfully registered as a customer")
+    alert("{% trans "You are now successfully registered as a customer"|capfirst %}")
     document.location = "/customer_login"
     {% endif %}
   </script>

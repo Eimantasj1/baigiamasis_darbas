@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-{% load static%}
+{% load static i18n %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">RentRide | Car Rental Site</a>
+    <a class="navbar-brand" href="/">RentRide | {% trans "Car Rental Site"|title %}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,16 +21,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-5">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/customer_homepage/">Search Cars</a>
+          <a class="nav-link active" aria-current="page" href="/customer_homepage/">{% trans "Search Cars"|title %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/past_orders/">Past Orders</a>
+          <a class="nav-link active" aria-current="page" href="/past_orders/">{% trans "Past Orders"|title %}</a>
         </li>
       </ul>
       {% if user.is_authenticated %}
       <div class="user-panel">
-        <p>Nice to see you, {{ user.username | capfirst }}!</p>
-        <center><a href="{% url 'logout' %}" class="nav-link active">Logout</a></center>
+        <p>{% trans "Nice to see you"|capfirst %}, {{ user.username | capfirst }}!</p>
+        <center><a href="{% url 'logout' %}" class="nav-link active">{% trans "Logout"|capfirst %}</a></center>
       </div>
       {% endif %}
     </div>

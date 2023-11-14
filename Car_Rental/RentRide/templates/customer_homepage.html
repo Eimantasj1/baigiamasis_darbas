@@ -1,19 +1,20 @@
 {% extends 'customer_navbar.html' %}
-{% block title %} RentRide| Search Cars {% endblock %}
+{% load static i18n %}
+{% block title %} RentRide| {% trans "Search Cars"|title %} {% endblock %}
 {% block body %}
 <br>
 <div class="container ">
   <div class="p-5 bg-light rounded-3">
     <div class="container-fluid">
-      <h1 class="display-5 fw-bold">Welcome to RentRide |  Car Rental Site</h1>
-      <p class="col-md-8 fs-4">By providing your city, you can explore the list of cars currently available.</p>
+      <h1 class="display-5 fw-bold">{% trans "Welcome to"|capfirst %} RentRide |  {% trans "Car Rental Site"|title %}</h1>
+      <p class="col-md-8 fs-4">{% trans "By providing your city, you can explore the list of cars currently available"|capfirst %}.</p>
     </div>
     <form class="w3-container" action="/search_results/" method="post">
         {% csrf_token %}
         <br><br>
-        <lable><i style="font-weight: bold; font-size: large;">Type in Your City :</i></lable> 
+        <lable><i style="font-weight: bold; font-size: large;">{% trans "Type in Your City"|capfirst %} :</i></lable> 
         <input type="text" class="form-control mt-3" name="city"><br>
-        <button class="btn btn-primary" type="submit">Search</button>
+        <button class="btn btn-primary" type="submit">{% trans "Search"|capfirst %}</button>
       </form>
   </div>
 </div>

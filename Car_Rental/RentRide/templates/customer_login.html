@@ -1,27 +1,28 @@
 {% extends 'base.html' %}
-{% block title %} Customer Login {% endblock %}
+{% load static i18n %}
+{% block title %} {% trans "Customer Login"|title %} {% endblock %}
 {% block css %}
 {% endblock %}
 {% block body %}
 
 <form style="border:1px solid #ccc" method="POST"> {% csrf_token %}
   <div class="container">
-    <h1>Customer Login</h1>
-    <p>To access your account, complete the following form.</p>
-    <h6>If you haven't registered yet, click here <a href="/customer_signup/">Signup</a></h6>
+    <h1>{% trans "Customer Login"|title %}</h1>
+    <p>{% trans "To access your account, complete the following form"|capfirst %}.</p>
+    <h6>{% trans "If you haven't registered yet, click here"|capfirst %} <a href="/customer_signup/">{% trans "Signup"|capfirst %}</a></h6>
     <hr>
 
-    <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
+    <label><b>{% trans "Username"|capfirst %}</b></label>
+    <input type="text" placeholder="{% trans "Enter Username"|capfirst %}" name="username" required>
 
-    <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <label><b>{% trans "Password"|capfirst %}</b></label>
+    <input type="password" placeholder="{% trans "Enter Password"|title %}" name="password" required>
     
     <label>
-      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> {% trans "Remember me"|capfirst %}
     </label>
     <br>
-      <button type="submit" class="btn">Login</button>
+      <button type="submit" class="btn">{% trans "Login"|capfirst %}</button>
   </div>
 </form>
 </body>
@@ -30,7 +31,7 @@
 {% block js %}
 <script>
   {% if alert %}
-  alert("Invalid Credentials")
+  alert("{% trans "Invalid Credentials"|title %}")
   document.location = "/customer_login"
   {% endif %}
 </script>
