@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-14 11:38+0000\n"
+"POT-Creation-Date: 2023-11-14 13:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,8 @@ msgid "Add a car"
 msgstr "Pridėti automobilį"
 
 #: RentRide/templates/add_car.html:11 RentRide/templates/all_cars.html:12
-#: RentRide/templates/all_orders.html:13
+#: RentRide/templates/all_orders.html:13 RentRide/templates/earnings.html:13
+#: RentRide/templates/edit_car.html:11
 msgid "Car Name"
 msgstr "Automobilio pavadinimas"
 
@@ -37,15 +38,17 @@ msgstr "Automobilio marke"
 #: RentRide/templates/all_cars.html:14
 #: RentRide/templates/car_dealer_signup.html:26
 #: RentRide/templates/customer_signup.html:28
+#: RentRide/templates/edit_car.html:18
 msgid "City"
 msgstr "Miestas"
 
-#: RentRide/templates/add_car.html:22
+#: RentRide/templates/add_car.html:22 RentRide/templates/edit_car.html:22
 msgid "Car Image"
 msgstr "Automobilio nuotrauka"
 
 #: RentRide/templates/add_car.html:29 RentRide/templates/all_cars.html:15
-#: RentRide/templates/all_orders.html:17
+#: RentRide/templates/all_orders.html:17 RentRide/templates/earnings.html:17
+#: RentRide/templates/edit_car.html:29
 msgid "Capacity"
 msgstr "Sėdimų vietų skaičius"
 
@@ -55,6 +58,7 @@ msgstr "Sėdimų vietų skaičius"
 
 #: RentRide/templates/add_car.html:36 RentRide/templates/all_orders.html:16
 #: RentRide/templates/complete_order.html:12
+#: RentRide/templates/earnings.html:16 RentRide/templates/edit_car.html:36
 msgid "Rent"
 msgstr "Kaina"
 
@@ -75,6 +79,7 @@ msgid "Cars List"
 msgstr "Automobilių sąrašas"
 
 #: RentRide/templates/all_cars.html:13 RentRide/templates/all_orders.html:14
+#: RentRide/templates/earnings.html:14
 msgid "Image"
 msgstr "Nuotrauka"
 
@@ -99,12 +104,13 @@ msgstr "Užsakymai"
 msgid "Current Orders"
 msgstr "Nauji užsakymai"
 
-#: RentRide/templates/all_orders.html:12
+#: RentRide/templates/all_orders.html:12 RentRide/templates/earnings.html:12
 msgid "Customer Name"
 msgstr "Vartotojo vardas"
 
 #: RentRide/templates/all_orders.html:15
 #: RentRide/templates/complete_order.html:13
+#: RentRide/templates/earnings.html:15
 msgid "Days"
 msgstr "Dienos"
 
@@ -214,6 +220,7 @@ msgid "Add Cars"
 msgstr "Pridėti automobilį"
 
 #: RentRide/templates/car_dealer_navbar.html:34
+#: RentRide/templates/earnings.html:3
 msgid "Earnings"
 msgstr "Mano uždarbis"
 
@@ -350,23 +357,49 @@ msgid "Invalid Credentials"
 msgstr "Toks vartotojas nerastas"
 
 #: RentRide/templates/customer_navbar.html:27
-#| msgid "Orders"
 msgid "Past Orders"
 msgstr "Mano užsakymai"
 
 #: RentRide/templates/customer_signup.html:3
-#| msgid "Customer Login"
 msgid "Customer Signup"
 msgstr "Vartotojo prisijungimas"
 
 #: RentRide/templates/customer_signup.html:9
-#| msgid "Car Dealer Signup Form"
 msgid "Customer Signup Form"
 msgstr "Automobilių nuomotojo registracijos forma"
 
 #: RentRide/templates/customer_signup.html:48
 msgid "You are now successfully registered as a customer"
 msgstr "Sėkmingai prisiregistravote kaip vartotojas"
+
+#: RentRide/templates/earnings.html:7
+#, fuzzy
+msgid "Total Earnings"
+msgstr "Iš viso uždirbta"
+
+#: RentRide/templates/earnings.html:33
+msgid "No Earnings Yet"
+msgstr "Kol kas nieko neuždirbta"
+
+#: RentRide/templates/edit_car.html:3
+msgid "Edit Car"
+msgstr "Redaguoti automobili"
+
+#: RentRide/templates/edit_car.html:22
+msgid "View Image"
+msgstr "Rodyti nuotrauką"
+
+#: RentRide/templates/edit_car.html:36 RentRide/templates/index.html:21
+msgid "per day"
+msgstr "dienai"
+
+#: RentRide/templates/edit_car.html:41
+msgid "Update Details"
+msgstr "Atnaujinti"
+
+#: RentRide/templates/edit_car.html:48
+msgid "Car Details Updated Successfully"
+msgstr "Automobilis atnaujintas sėkmigai"
 
 #: RentRide/templates/index.html:10
 msgid "Take your pick from the extensive range of Cars"
@@ -375,10 +408,6 @@ msgstr "Pasirink iš plataus automobilių asortimento"
 #: RentRide/templates/index.html:20
 msgid "Dealer"
 msgstr "Nuomoja"
-
-#: RentRide/templates/index.html:21
-msgid "per day"
-msgstr "dienai"
 
 #: RentRide/templates/index.html:28
 msgid "Login to Rent"
