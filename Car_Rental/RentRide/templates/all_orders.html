@@ -1,21 +1,21 @@
 {% extends 'car_dealer_navbar.html' %}
-{% block title %} RentRide | Orders {% endblock %}
+{% block title %} RentRide | {% trans "Orders"|capfirst %} {% endblock %}
 {% load static %}
 {% block body %}
 <div class="container">
     {% if all_orders %}
-    <h1 class="mt-4">Current Orders</h1>
+    <h1 class="mt-4">{% trans "Current Orders"|title %}</h1>
     <div class="users-table mt-4">
         <table>
             <tbody>
                 <tr>
-                    <th>Customer Name</th>
-                    <th>Car Name</th>
-                    <th>Image</th>
-                    <th>Days</th>
-                    <th>Rent</th>
-                    <th>Capacity</th>
-                    <th>Action</th>
+                    <th>{% trans "Customer Name"|title %}</th>
+                    <th>{% trans "Car Name"|title %}</th>
+                    <th>{% trans "Image"|capfirst %}</th>
+                    <th>{% trans "Days"|capfirst %}</th>
+                    <th>{% trans "Rent"|capfirst %}</th>
+                    <th>{% trans "Capacity"|capfirst %}</th>
+                    <th>{% trans "Action"|capfirst %}</th>
                 </tr>
                 {% for order in all_orders %}
                 <tr>
@@ -28,7 +28,7 @@
                     <td>
                         <form action="{% url 'complete_order' order.id %}" method="post">
                             {% csrf_token %}
-                            <button class="btn btn-primary" type="submit">Complete</button>
+                            <button class="btn btn-primary" type="submit">{% trans "Complete"|capfirst %}</button>
                         </form>
                     </td>
                 </tr>
@@ -38,7 +38,7 @@
     </div>
     {% else %}
     <br>
-    <h2>No Orders Right Now</h2>
+    <h2>{% trans "No Orders Right Now"|title %}</h2>
     {% endif %}
 </div>
 {% endblock %}

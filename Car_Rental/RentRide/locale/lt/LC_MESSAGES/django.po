@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-14 09:06+0000\n"
+"POT-Creation-Date: 2023-11-14 09:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,101 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
+
+#: RentRide/templates/add_car.html:2
+msgid "Add a car"
+msgstr "Pridėti automobilį"
+
+#: RentRide/templates/add_car.html:10 RentRide/templates/all_cars.html:12
+#: RentRide/templates/all_orders.html:13
+msgid "Car Name"
+msgstr "Automobilio pavadinimas"
+
+#: RentRide/templates/add_car.html:11
+msgid "Name of the Car"
+msgstr "Automobilio marke"
+
+#: RentRide/templates/add_car.html:17 RentRide/templates/add_car.html:18
+#: RentRide/templates/all_cars.html:14
+msgid "City"
+msgstr "Miestas"
+
+#: RentRide/templates/add_car.html:21
+msgid "Car Image"
+msgstr "Automobilio nuotrauka"
+
+#: RentRide/templates/add_car.html:28 RentRide/templates/all_cars.html:15
+#: RentRide/templates/all_orders.html:17
+msgid "Capacity"
+msgstr "Durų skaičius"
+
+#: RentRide/templates/add_car.html:29
+msgid "Number of Seats"
+msgstr "Sėdimų vietų skaičius"
+
+#: RentRide/templates/add_car.html:35 RentRide/templates/all_orders.html:16
+msgid "Rent"
+msgstr "Kaina"
+
+#: RentRide/templates/add_car.html:36
+msgid "Rent (per day)"
+msgstr "Kaina dienai"
+
+#: RentRide/templates/add_car.html:40
+msgid "Submit"
+msgstr "Patvirtinti"
+
+#: RentRide/templates/all_cars.html:3
+msgid "Dealer page"
+msgstr "Nuomotojo puslapis"
+
+#: RentRide/templates/all_cars.html:7
+msgid "Cars List"
+msgstr "Automobilių sąrašas"
+
+#: RentRide/templates/all_cars.html:13 RentRide/templates/all_orders.html:14
+msgid "Image"
+msgstr "Nuotrauka"
+
+#: RentRide/templates/all_cars.html:16 RentRide/templates/all_cars.html:25
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: RentRide/templates/all_cars.html:25
+msgid "Are you sure you want to delete"
+msgstr "Ar Jus tikras, kad norite ištrinti"
+
+#: RentRide/templates/all_cars.html:32
+msgid "No Cars Added Yet"
+msgstr "Šiuo metu pridėtų automobilių nėra"
+
+#: RentRide/templates/all_orders.html:2
+msgid "Orders"
+msgstr "Užsakymai"
+
+#: RentRide/templates/all_orders.html:7
+msgid "Current Orders"
+msgstr "Nauji užsakymai"
+
+#: RentRide/templates/all_orders.html:12
+msgid "Customer Name"
+msgstr "Vartotojo vardas"
+
+#: RentRide/templates/all_orders.html:15
+msgid "Days"
+msgstr "Dienos"
+
+#: RentRide/templates/all_orders.html:18
+msgid "Action"
+msgstr "Veiksmas"
+
+#: RentRide/templates/all_orders.html:31
+msgid "Complete"
+msgstr "Patvirtinti"
+
+#: RentRide/templates/all_orders.html:41
+msgid "No Orders Right Now"
+msgstr "Naujų užsakymų nerasta"
 
 #: RentRide/templates/base.html:16 RentRide/templates/index.html:9
 msgid "Car Rental Site"

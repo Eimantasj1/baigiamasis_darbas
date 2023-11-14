@@ -1,5 +1,5 @@
 {% extends 'car_dealer_navbar.html' %}
-{% block title %} RentRide | Add a car {% endblock %}
+{% block title %} RentRide | {% trans "Add a car"|capfirst %} {% endblock %}
 {% block css %}
 {% endblock %}
 {% block body %}
@@ -7,37 +7,37 @@
 <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
     <div class="row mt-2">
         <div class="form-group col-md-12">
-            <label><i style="font-weight: bold;">Car Name</i></label>
-            <input type="text" class="form-control" name="car_name" placeholder="Name of the Car">
+            <label><i style="font-weight: bold;">{% trans "Car Name"|capfirst %}</i></label>
+            <input type="text" class="form-control" name="car_name" placeholder="{% trans "Name of the Car"|capfirst %}">
         </div>
     </div>
     
     <div class="row mt-3">
         <div class="form-group col-md-6">
-            <label><i style="font-weight: bold;">City</i></label>
-            <input type="text" class="form-control" name="city" placeholder="City">
+            <label><i style="font-weight: bold;">{% trans "City"|capfirst %}</i></label>
+            <input type="text" class="form-control" name="city" placeholder="{% trans "City"|capfirst %}">
         </div>
         <div class="form-group col-md-6">
-            <label><i style="font-weight: bold;">Car Image</i></label>
+            <label><i style="font-weight: bold;">{% trans "Car Image"|title %}</i></label>
             <input type="file" class="form-control" name="image">
         </div>
     </div>
 
     <div class="row mt-3">
         <div class="form-group col-md-12">
-            <label><i style="font-weight: bold;">Capacity</i></label>
-            <input type="number" class="form-control" name="capacity" placeholder="Number of Seats">
+            <label><i style="font-weight: bold;">{% trans "Capacity"|capfirst %}</i></label>
+            <input type="number" class="form-control" name="capacity" placeholder="{% trans "Number of Seats"|capfirst %}">
         </div>
     </div>
 
     <div class="row mt-3">
         <div class="form-group col-md-12">
-            <label><i style="font-weight: bold;">Rent</i></label>
-            <input type="number" class="form-control" name="rent" placeholder="Rent (per day)">
+            <label><i style="font-weight: bold;">{% trans "Rent"|capfirst %}</i></label>
+            <input type="number" class="form-control" name="rent" placeholder="{% trans "Rent (per day)"|capfirst %}">
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <button type="submit" class="btn btn-primary mt-3">{% trans "Submit"|capfirst %}</button>
   </form>
   </div>
 {% endblock %}
