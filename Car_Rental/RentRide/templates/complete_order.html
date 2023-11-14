@@ -1,16 +1,17 @@
 {% extends 'customer_navbar.html' %}
-{% block title %} Complete Order {% endblock %}
+{% load static i18n %}
+{% block title %} {% trans "Complete Order"|title %} {% endblock %}
 {% block css %}{% endblock %}
 {% block body %}
 <div class="container mt-4">
-    <h1>Complete Order</h1>
+    <h1>{% trans "Complete Order"|title %}</h1>
     <form class="w3-container" method="post">
         {% csrf_token %}
-        <p>Order ID: {{ order.id }}</p>
-        <p>Car: {{ order.car.name }}</p>
-        <p>Rent: €{{ order.rent }}</p>
-        <p>Days: {{ order.days }}</p>
-        <button class="btn" style="color: white; background-color: rgb(0, 98, 128);" type="submit">Complete Order</button>
+        <p>{% trans "Order ID"|title %}: {{ order.id }}</p>
+        <p>{% trans "Car"|capfirst %}: {{ order.car.name }}</p>
+        <p>{% trans "Rent"|capfirst %}: €{{ order.rent }}</p>
+        <p>{% trans "Days"|capfirst %}: {{ order.days }}</p>
+        <button class="btn" style="color: white; background-color: rgb(0, 98, 128);" type="submit">{% trans "Complete Order"|title %}</button>
     </form>
 </div>
 {% endblock %}

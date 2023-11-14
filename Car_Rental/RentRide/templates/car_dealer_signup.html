@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static i18n %}
 {% block title %} {% trans "Car Dealer Signup"|title %} {% endblock %}
 {% block body %}
 <form style="border:1px solid #ccc" method="POST"> {% csrf_token %}
