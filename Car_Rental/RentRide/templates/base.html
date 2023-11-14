@@ -1,6 +1,8 @@
 <!doctype html>
 {% load static i18n %}
-<html lang="en">
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +31,17 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/car_dealer_login/">{% trans "Dealer Login"|title %}</a>
+          </li>
+          <li>
+            <form class="inline-form" action="{% url "set_language" %}" method="post">
+              {% csrf_token %}
+              <select name"language" onchange="this.form.submit()">
+                {% for language in LANGUAGES %}
+                  <option value="{{ language.0 }}"
+                  {% if language.0 == LANGUAGE_CODE %}selected{% endif %}
+                  >{{ language.1 }}</option>
+                {% endfor%}
+              </select>
           </li>
           {% if user.is_authenticated %}
           <div class="user-panel">

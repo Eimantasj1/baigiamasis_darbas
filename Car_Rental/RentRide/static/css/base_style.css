@@ -79,3 +79,8 @@ footer {
   .nav-link.active:hover {
     color: #ff0000 !important;
 }
+
+/* Kalbu keitimas */
+form.inline-form {
+    display: inline-block;
+}
