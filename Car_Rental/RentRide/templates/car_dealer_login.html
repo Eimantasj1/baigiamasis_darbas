@@ -6,6 +6,7 @@
 {% block body %}
 <form style="border:1px solid #ccc" method="POST"> {% csrf_token %}
 <div class="container">
+  <img src="../static/img/Midway-Motors-Rentals-Headliner.png" alt="Image" class="img-fluid">
   <h1>{% trans "Dealer Login"|title %}</h1>
   <p>{% trans "To access your account, complete the following form"|capfirst %}.</p>
   <h6>{% trans "If you haven't registered yet, click here"|capfirst %} <a href="/car_dealer_signup/">{% trans "Signup"|capfirst %}</a></h6>

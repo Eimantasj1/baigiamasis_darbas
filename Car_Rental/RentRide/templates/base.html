@@ -48,7 +48,8 @@
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous">
   </script>
-  <footer>
+  <footer class="footer">
+    <div class="footer-content">
     <center>
       <form class="inline-form" action="{% url "set_language" %}" method="post">
         {% csrf_token %}
@@ -62,6 +63,8 @@
       </form>
       <p>&copy; 2023 RentRide</p>
     </center>
+    </div>
   </footer>
+  <script src="../static/js/script.js"></script>
 </body>
 </html>

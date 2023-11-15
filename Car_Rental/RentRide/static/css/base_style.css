@@ -37,14 +37,23 @@ button:hover {
 .navbar {
     background-color: rgba(0, 6, 92, 0.443) !important;
 }
-footer {
-    position: fixed; 
-    bottom: 0; 
-    width: 100%; 
-    padding: 0px 0;
+body {
     margin: 0;
+    padding: 0;
+    height: 150vh;
+  }
+  
+.footer {
+    position: fixed;
+    bottom: -40px;
+    width: 100%;
     background-color: rgba(0, 6, 92, 0.443);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    transition: bottom 0.6s ease;
 }
+  
 .user-panel a {
     position: relative;
     top: -15px;
@@ -52,15 +61,19 @@ footer {
 
     /* Login/SignUp/Logout mygtukai */
 .btn {
-    background-color: #71cc0971;
-    font-size: 22px;
-    width: 8rem;
+    background-color: blue;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-item a.btn {
+    background-color: blue;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.btn-success {
-    background-color: #71cc0971;
-    font-size: 22px;
-    width: 8rem;
+.nav-item a.btn:hover {
+background-color: green;
+color: white;
 }
 .user-panel {
     position: absolute;
