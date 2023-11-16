@@ -1,0 +1,112 @@
+.navbar {
+    background-color: rgba(0, 6, 92, 0.443);
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 150vh;
+}
+  
+.footer {
+    position: fixed;
+    bottom: -40px;
+    width: 100%;
+    background-color: rgba(0, 6, 92, 0.443);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    transition: bottom 0.6s ease;
+}
+
+/* Login/SignUp/Logout mygtukai */
+.user-panel {
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+.navbar-nav {
+    margin-right: 50px;
+}
+    
+    /* keiciam spalva uzvedus pelyte ant mygtuku */
+.navbar-nav .nav-item  .nav-link:hover .nav-link.active:hover {
+    color: #ff0000 !important;
+}
+  .nav-link.active:hover {
+    color: #ff0000 !important;
+}
+.user-panel a {
+    position: relative; 
+    color: #212529; 
+    top: -15px;
+}
+
+/* search results */
+
+h1 {
+    text-align: center;
+    color: black;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+th {
+    background-color: #72a716;
+    color: white;
+}
+th,
+td {
+    border: 2px solid #ddd;
+}
+.users-table table tbody tr:first-child th {
+    background-color: rgba(60, 73, 249, 0.443);
+}
+
+/* sidebar */
+
+.sticky-container{
+    padding:0px;
+    margin:0px;
+    position:fixed;
+    right:-130px;
+    top:230px;
+    width:210px;
+    z-index: 1100;
+}
+.sticky li{
+    list-style-type:none;
+    background-color:#fff;
+    color:#efefef;
+    height:43px;
+    padding:0px;
+    margin:0px 0px 1px 0px;
+    -webkit-transition:all 0.25s ease-in-out;
+    -moz-transition:all 0.25s ease-in-out;
+    -o-transition:all 0.25s ease-in-out;
+    transition:all 0.25s ease-in-out;
+    cursor:pointer;
+}
+.sticky li:hover{
+    margin-left:-115px;
+}
+.sticky li img{
+    float:left;
+    margin:5px 4px;
+    margin-right:5px;
+}
+.sticky li p{
+    padding-top:5px;
+    margin:0px;
+    line-height:16px;
+    font-size:11px;
+}
+.sticky li p a{
+    text-decoration:none;
+    color:#2C3539;
+}
+.sticky li p a:hover{
+    text-decoration:underline;
+}
