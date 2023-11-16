@@ -340,7 +340,7 @@ msgstr "Kaina"
 
 #: RentRide/templates/car_rent.html:13
 msgid "How many days"
-msgstr "Kiek dienų?"
+msgstr "Kiek dienų"
 
 #: RentRide/templates/car_rent.html:16
 msgid "Confirm"

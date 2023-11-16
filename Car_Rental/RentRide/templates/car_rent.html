@@ -11,7 +11,7 @@
         <p>{% trans "Car"|capfirst %}: {{ car.name }}</p>
         <p>{% trans "Price"|capfirst %}: €{{ cost_per_day }} per day</p>
         <label for="days">{% trans "How many days"|capfirst %}?</label>
-        <input type="text" id="days" name="days" placeholder="2">
+        <input type="text" id="days" name="days" placeholder="0">
         <input type="hidden" name="id" value="{{ car.id }}">
         <button class="btn" style="color: white; background-color: rgb(0, 98, 128);" type="submit">{% trans "Confirm"|capfirst %}</button>
     </form>
