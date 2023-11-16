@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  dev:
+    build: ../
+    image: car_rental:dev
+    container_name: car_rental.dev
+    tty: true
+    stdin_open: true
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - ../Car_Rental:/app
+    command: >
+      bash -c "python manage.py migrate &&
+               python manage.py collectstatic --noinput &&
+               gunicorn Car_Rental.wsgi --bind 0.0.0.0:8000"
+  nginx:
+    build: ./nginx/
+    image: nginx:car_rental
+    container_name: car_rental.nginx
+    restart: always
+    ports:
+      - 80:80
+    links:
+      - dev:rentride
+    volumes:
+      - ./Car_Rental/static:/app/static
+      - ./Car_Rental/media:/app/media
