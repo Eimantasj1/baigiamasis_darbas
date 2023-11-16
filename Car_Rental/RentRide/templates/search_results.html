@@ -27,18 +27,26 @@
                             <td>{{ car.capacity }}</td>
                             <td>€{{ car.rent }} {% trans "per day" %}</td>
                             <td>
-                                <form action="/search_results/" method="post">
-                                    {% csrf_token %}
-                                    <input type="text" name="city" placeholder="{% trans "Enter Another City"|title %}" value="{{ city }}">
-                                    <button type="submit">{% trans "Search"|capfirst %}</button>
-                                </form>
+                                <li class="nav-item">
+                                    <a href="{% url 'car_rent' car.id %}" class="btn btn-primary">{% trans "Rent a Car"|capfirst %}</a>
+                                  </li>
                             </td>
+                            <center><form action="/search_results/" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="city" placeholder="{% trans "Enter Another City"|title %}" value="{{ city }}">
+                                <button type="submit">{% trans "Search"|capfirst %}</button></center>
+                            </form>
                         </tr>
                     {% endfor %}
                 {% else %}
                     <tr>
                         <td colspan="6">
                             <h2>{% trans "No cars available in this city at the moment"|capfirst %}</h2>
+                            <form action="/search_results/" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="city" placeholder="{% trans "Enter Another City"|title %}" value="{{ city }}">
+                                <button type="submit">{% trans "Search"|capfirst %}</button>
+                            </form>
                         </td>
                     </tr>
                 {% endif %}
