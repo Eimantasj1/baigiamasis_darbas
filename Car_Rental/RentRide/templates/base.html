@@ -32,6 +32,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/car_dealer_login/">{% trans "Dealer Login"|title %}</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/contact/">{% trans "Contact"|title %}</a>
+          </li>
           {% if user.is_authenticated %}
           <div class="user-panel">
             <p>{% trans "Nice to see you"|capfirst %}, {{ user.username |capfirst }}!</p>
