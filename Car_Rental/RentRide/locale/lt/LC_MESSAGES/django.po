@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 10:16+0000\n"
+"POT-Creation-Date: 2023-11-20 09:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr "Pridėti automobilį"
 #: RentRide/templates/add_car.html:12 RentRide/templates/all_cars.html:13
 #: RentRide/templates/all_orders.html:14 RentRide/templates/earnings.html:14
 #: RentRide/templates/edit_car.html:11 RentRide/templates/past_orders.html:16
-#: RentRide/templates/search_results.html:12
+#: RentRide/templates/search_results.html:13
 msgid "Car Name"
 msgstr "Automobilio pavadinimas"
 
@@ -40,7 +40,7 @@ msgstr "Automobilio marke"
 #: RentRide/templates/car_dealer_signup.html:26
 #: RentRide/templates/customer_signup.html:28
 #: RentRide/templates/edit_car.html:18
-#: RentRide/templates/search_results.html:14
+#: RentRide/templates/search_results.html:15
 msgid "City"
 msgstr "Miestas"
 
@@ -51,7 +51,7 @@ msgstr "Automobilio nuotrauka"
 #: RentRide/templates/add_car.html:30 RentRide/templates/all_cars.html:16
 #: RentRide/templates/all_orders.html:18 RentRide/templates/earnings.html:18
 #: RentRide/templates/edit_car.html:29 RentRide/templates/past_orders.html:20
-#: RentRide/templates/search_results.html:15
+#: RentRide/templates/search_results.html:16
 msgid "Capacity"
 msgstr "Sėdimų vietų skaičius"
 
@@ -63,7 +63,7 @@ msgstr "Sėdimų vietų skaičius"
 #: RentRide/templates/complete_order.html:12
 #: RentRide/templates/earnings.html:17 RentRide/templates/edit_car.html:36
 #: RentRide/templates/past_orders.html:19
-#: RentRide/templates/search_results.html:16
+#: RentRide/templates/search_results.html:17
 msgid "Rent"
 msgstr "Kaina"
 
@@ -79,13 +79,13 @@ msgstr "Patvirtinti"
 msgid "Dealer page"
 msgstr "Nuomotojo puslapis"
 
-#: RentRide/templates/all_cars.html:8 RentRide/templates/search_results.html:7
+#: RentRide/templates/all_cars.html:8 RentRide/templates/search_results.html:8
 msgid "Cars List"
 msgstr "Automobilių sąrašas"
 
 #: RentRide/templates/all_cars.html:14 RentRide/templates/all_orders.html:15
 #: RentRide/templates/earnings.html:15 RentRide/templates/past_orders.html:17
-#: RentRide/templates/search_results.html:13
+#: RentRide/templates/search_results.html:14
 msgid "Image"
 msgstr "Nuotrauka"
 
@@ -153,38 +153,44 @@ msgstr "Vartotojo prisijungimas"
 msgid "Dealer Login"
 msgstr "Nuomotojo prisijungimas"
 
-#: RentRide/templates/base.html:37 RentRide/templates/car_dealer_navbar.html:38
-#: RentRide/templates/customer_navbar.html:32
+#: RentRide/templates/base.html:36 RentRide/templates/car_dealer_navbar.html:37
+#: RentRide/templates/contact.html:3 RentRide/templates/customer_navbar.html:30
+msgid "Contact"
+msgstr "Kontaktai"
+
+#: RentRide/templates/base.html:40 RentRide/templates/car_dealer_navbar.html:41
+#: RentRide/templates/customer_navbar.html:35
 msgid "Nice to see you"
 msgstr "Malonu Tave matyti"
 
-#: RentRide/templates/base.html:38 RentRide/templates/car_dealer_navbar.html:39
-#: RentRide/templates/customer_navbar.html:33
+#: RentRide/templates/base.html:41 RentRide/templates/car_dealer_navbar.html:42
+#: RentRide/templates/customer_navbar.html:36
 msgid "Logout"
 msgstr "Atsijungti"
 
-#: RentRide/templates/base.html:49 RentRide/templates/car_dealer_navbar.html:50
-#: RentRide/templates/customer_navbar.html:43
+#: RentRide/templates/base.html:52 RentRide/templates/car_dealer_navbar.html:53
+#: RentRide/templates/customer_navbar.html:46
 msgid "Like Us on"
 msgstr "Spausk patinka mūsų"
 
-#: RentRide/templates/base.html:53 RentRide/templates/base.html:57
-#: RentRide/templates/car_dealer_navbar.html:54
-#: RentRide/templates/car_dealer_navbar.html:58
-#: RentRide/templates/customer_navbar.html:47
-#: RentRide/templates/customer_navbar.html:51
+#: RentRide/templates/base.html:56 RentRide/templates/base.html:60
+#: RentRide/templates/car_dealer_navbar.html:57
+#: RentRide/templates/car_dealer_navbar.html:61
+#: RentRide/templates/customer_navbar.html:50
+#: RentRide/templates/customer_navbar.html:54
 msgid "Follow Us on"
 msgstr "Pasek mus"
 
-#: RentRide/templates/base.html:61 RentRide/templates/car_dealer_navbar.html:62
-#: RentRide/templates/customer_navbar.html:55
+#: RentRide/templates/base.html:64 RentRide/templates/car_dealer_navbar.html:65
+#: RentRide/templates/customer_navbar.html:58
 msgid "Subscribe on"
 msgstr "Prenumeruok mus"
 
 #: RentRide/templates/car_dealer_login.html:11
 #: RentRide/templates/customer_login.html:12
 msgid "To access your account, complete the following form"
-msgstr "Kad prisijungtum prie savo paskyros, užpildyk žemiau esančius laukelius"
+msgstr ""
+"Kad prisijungtum prie savo paskyros, užpildyk žemiau esančius laukelius"
 
 #: RentRide/templates/car_dealer_login.html:12
 #: RentRide/templates/customer_login.html:13
@@ -325,7 +331,7 @@ msgid "Terms & Privacy"
 msgstr "privatumo politika"
 
 #: RentRide/templates/car_rent.html:3 RentRide/templates/car_rent.html:8
-#: RentRide/templates/index.html:25
+#: RentRide/templates/index.html:25 RentRide/templates/search_results.html:32
 msgid "Rent a Car"
 msgstr "Nuomotis"
 
@@ -357,6 +363,34 @@ msgstr "Patvirtinti užsakymą"
 msgid "Order ID"
 msgstr "Užsakymo numeris"
 
+#: RentRide/templates/contact.html:12
+msgid "Contact info"
+msgstr "Kontaktinė infromacija"
+
+#: RentRide/templates/contact.html:43
+msgid "Lithuania, Vilnius country"
+msgstr "Lietuva, Vilniaus miestas"
+
+#: RentRide/templates/contact.html:65
+msgid "Your Name"
+msgstr "Jūsų vardas"
+
+#: RentRide/templates/contact.html:70
+msgid "Your Email"
+msgstr "Jūsų el. paštas"
+
+#: RentRide/templates/contact.html:75
+msgid "Subject"
+msgstr "Tema"
+
+#: RentRide/templates/contact.html:80
+msgid "Message"
+msgstr "Žinutė"
+
+#: RentRide/templates/contact.html:85
+msgid "Send Message"
+msgstr "Siųsti žinutę"
+
 #: RentRide/templates/customer_homepage.html:3
 #: RentRide/templates/customer_navbar.html:24
 msgid "Search Cars"
@@ -376,7 +410,8 @@ msgid "Type in Your City"
 msgstr "Įvesk miestą kuriame ieškai automobilio"
 
 #: RentRide/templates/customer_homepage.html:18
-#: RentRide/templates/search_results.html:33
+#: RentRide/templates/search_results.html:38
+#: RentRide/templates/search_results.html:49
 msgid "Search"
 msgstr "Ieškoti"
 
@@ -402,7 +437,6 @@ msgid "You are now successfully registered as a customer"
 msgstr "Sėkmingai prisiregistravote kaip vartotojas"
 
 #: RentRide/templates/earnings.html:8
-#, fuzzy
 msgid "Total Earnings"
 msgstr "Iš viso uždirbta"
 
@@ -419,7 +453,7 @@ msgid "View Image"
 msgstr "Rodyti nuotrauką"
 
 #: RentRide/templates/edit_car.html:36 RentRide/templates/index.html:22
-#: RentRide/templates/search_results.html:28
+#: RentRide/templates/search_results.html:29
 msgid "per day"
 msgstr "dienai"
 
@@ -480,14 +514,18 @@ msgstr "Užsakymų nerasta, arba laukiama nuomotojo patvirtinimo"
 msgid "Car Search Results"
 msgstr "Automobilio paieškos rezultatai"
 
-#: RentRide/templates/search_results.html:17
+#: RentRide/templates/search_results.html:18
 msgid "Actions"
 msgstr "Veiksmai"
 
-#: RentRide/templates/search_results.html:32
+#: RentRide/templates/search_results.html:37
+#: RentRide/templates/search_results.html:48
 msgid "Enter Another City"
 msgstr "Įveskite kitą miestą"
 
-#: RentRide/templates/search_results.html:41
+#: RentRide/templates/search_results.html:45
 msgid "No cars available in this city at the moment"
 msgstr "Šiuo metu nėra automobilių šiame mieste, arba visi išnomuoti"
+
+#~ msgid "info"
+#~ msgstr "informacija"
