@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 
+def contact(request):
+    return render(request, "contact.html")
 
 def index(request):
     cars = Car.objects.filter(is_available=True)

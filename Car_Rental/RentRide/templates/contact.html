@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %} RentRide| {% trans "Contact"|title %} {% endblock %}
+{% block body %}
+<section class="section" id="features">
+  <div class="container">
+    <img src="../static/img/Midway-Motors-Rentals-Headliner.png" alt="Image" class="img-fluid">
+    <div class="row text-center">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="section-heading">
+                
+          <h2>Contact <em> info</em></h2>
+          <img src="../static/img/line-dec.png" alt="waves">
+                  
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="icon">
+              <i class="fa fa-phone"></i>
+            </div>
+
+              <h5><a href="#">+370 600 00001</a></h5>
+
+              <br>
+          </div>
+
+          <div class="col-md-4">
+            <div class="icon">
+                <i class="fa fa-envelope"></i>
+            </div>
+
+            <h5><a href="#">CarRental@rentride.com</a></h5>
+
+            <br>
+          </div>
+
+          <div class="col-md-4">
+            <div class="icon">
+                <i class="fa fa-map-marker"></i>
+            </div>
+
+            <h5>Lithuania, Vilnius country</h5>
+
+            <br>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section" id="contact-us" style="margin-top: 0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-xs-12">
+        <div id="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d815.3058656448833!2d25.294048844873313!3d54.69144295972005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dd941948d79f05%3A0xe9f2afbf6b1294df!2sOlimpie%C4%8Di%C5%B3%20g.%205%2C%2009200%20Vilnius!5e0!3m2!1slt!2slt!4v1700469513640!5m2!1slt!2slt" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-xs-12">
+        <div class="contact-form section-bg" style="background-image: url(static/img/contact-1-720x480.jpg)">
+          <form id="contact" action="" method="post">
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <fieldset>
+                  <input name="name" type="text" id="name" placeholder="Your Name*" required="">
+                </fieldset>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <fieldset>
+                  <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required="">
+                </fieldset>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <fieldset>
+                  <input name="subject" type="text" id="subject" placeholder="Subject">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="main-button">Send Message</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+</html>
